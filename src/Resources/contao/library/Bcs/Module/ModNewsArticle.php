@@ -61,7 +61,7 @@ class ModuleNewsArticle extends ModuleNews
 	{
 
         $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             if ($this->element instanceof ContentNewsArticle && $this->objArticle) {
                 $return = '';
                 if ($this->headline) {
