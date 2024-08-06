@@ -12,11 +12,12 @@
 
 namespace Bcs\Module;
 
+use Contao\ModuleNews;
 use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\NewsModel;
 
-class ModuleNewsArticle extends \ModuleNews
+class ModuleNewsArticle extends ModuleNews
 {
     /** @var NewsModel  */
 	protected $objArticle;
