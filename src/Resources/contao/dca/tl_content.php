@@ -13,6 +13,7 @@ use Contao\BackendUser;
 use Contao\Config;
 use Contao\Controller;
 use Contao\DataContainer;
+use Contao\StringUtil;
 use Contao\System;
 
 // Get our default 'tl_content' DCA
