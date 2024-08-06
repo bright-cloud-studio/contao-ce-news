@@ -8,10 +8,10 @@
  * @see	       https://github.com/bright-cloud-studio/contao-ce-news
  */
 
-namespace Bcs\NewsBundle;
+namespace Bcs\NewsArticleBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class BcsNewsBundle extends Bundle
+class BcsNewsArticleBundle extends Bundle
 {
 }
