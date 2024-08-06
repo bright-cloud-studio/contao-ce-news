@@ -10,6 +10,7 @@
 
 namespace Bcs\NewsArticleBundle;
 
+use Bcs\Module\ModuleNewsArticle;
 use Contao\BackendTemplate;
 use Contao\ContentText;
 use Contao\NewsModel;
@@ -38,7 +39,7 @@ class ContentNewsArticle extends ContentText
 			$objTemplate = new BackendTemplate('be_wildcard');
 			// requires existing template from autoload.ini
 			$this->news_template = 'news_latest';
-			$newsarticle = new ModuleNewsElement($objArticle, $this);
+			$newsarticle = new ModuleNewsArticle($objArticle, $this);
 			$objTemplate->wildcard = $newsarticle->generate();
 			
 			return $objTemplate->parse();
@@ -46,7 +47,7 @@ class ContentNewsArticle extends ContentText
 			
 		}
 		
-		$newsarticle = new ModuleNewsElement($objArticle, $this);
+		$newsarticle = new ModuleNewsArticle($objArticle, $this);
 		return $newsarticle->generate();
 
 		
