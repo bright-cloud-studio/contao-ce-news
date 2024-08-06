@@ -2,9 +2,18 @@
 
 namespace Bcs\NewsElement;
 
+use Bcs\Module\ModuleNewsElement;
+
 class ContentNewsArticle extends \ContentElement
 {
 
+
+    public function compile()
+    {
+        echo "HEY";
+        die();
+    }
+    
 	public function generate()
 	{
 		$time = time();
