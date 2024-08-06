@@ -35,7 +35,7 @@ class ContentNewsArticle extends ContentText
 		$this->Template->news_article = "SUCCESS";
 	}
 
-    public funtion generate()
+    public function generate()
     {
         // Get news item
 		$objArticle = \NewsModel::findPublishedByParentAndIdOrAlias($this->news, array($this->news_archive));
