@@ -95,7 +95,7 @@ class ModuleNewsArticle extends ModuleNews
 
             return $objTemplate->parse();
         }
-
+        
 		return parent::generate();
 	}
 
