@@ -16,7 +16,7 @@ use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\NewsModel;
 
-class ModuleNewsElement extends \ModuleNews
+class ModuleNewsArticle extends \ModuleNews
 {
     /** @var NewsModel  */
 	protected $objArticle;
@@ -51,7 +51,7 @@ class ModuleNewsElement extends \ModuleNews
         $this->element = $element;
 
 		// required by Module::generate()
-		$this->type = 'newselement';
+		$this->type = 'news_article';
 		$this->headline = $element->headline;
 		$this->hl = $element->hl;
 	}
