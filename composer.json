@@ -1,0 +1,41 @@
+{
+    "name":"bright-cloud-studio/contao-ce-news",
+    "description":"Adds a News content element that allows you to display single news articles.",
+    "keywords": ["contao", "content element", "news", "article", "bright", "cloud", "studio"],
+    "type": "contao-bundle",
+    "homepage": "http://brightcloudstudio.com/",
+    "license": "LGPL-3.0+",
+    "authors":[
+        {
+            "name": "Bright Cloud Studio",
+            "homepage": "https://brightcloudstudio.com",
+            "email": "mark@brightcloudstudio.com",
+            "role": "Developer"
+        }
+    ],
+    "support":{
+        "issues": "https://github.com/bright-cloud-studio/contao-ce-news/issues",
+        "source": "https://github.com/bright-cloud-studio/contao-ce-news"
+    },
+    "require":{
+        "php": "^7.4 || ^8.0",
+        "contao/core-bundle": "^5.3"
+    },
+    "extra":{
+        "contao-manager-plugin": "Bcs\\NewsBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bcs\\NewsBundle\\": "src"
+        },
+        "classmap": [
+            "src/Resources/contao"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    }
+}
