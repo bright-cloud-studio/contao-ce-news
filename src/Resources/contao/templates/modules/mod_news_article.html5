@@ -3,6 +3,7 @@
 
 <?php $this->block('content'); ?>
 
-<?php echo $this->article; ?>
+	<?php /* This line pulls in the article to the template */ ?>
+	<?php echo $this->article; ?>
 
 <?php $this->endblock(); ?>
