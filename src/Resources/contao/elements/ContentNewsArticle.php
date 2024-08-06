@@ -7,6 +7,15 @@ use Bcs\Module\ModuleNewsElement;
 class ContentNewsArticle extends \ContentElement
 {
 
+    protected function compile()
+    {
+        if (TL_MODE == 'BE') {
+            $this->generateBackendOutput();
+        } else {
+            $this->generateFrontendOutput();
+        }
+    }
+    
 	public function generate()
 	{
 		$time = time();
