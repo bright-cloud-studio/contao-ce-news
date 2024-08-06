@@ -81,7 +81,7 @@ class ModuleNewsArticle extends \ModuleNews
                 $objTemplate = new BackendTemplate('be_wildcard');
                 $objTemplate->title = $this->headline;
 
-                $objTemplate->wildcard = '### '.mb_strtoupper($GLOBALS['TL_LANG']['FMD'][$this->type][0] ?? 'Newselement').' ###';
+                $objTemplate->wildcard = '### '.mb_strtoupper($GLOBALS['TL_LANG']['FMD'][$this->type][0] ?? 'news_article').' ###';
                 if ($this->objArticle) {
                     $objTemplate->link = $this->objArticle->headline;
                     $objTemplate->id = $this->objArticle->id;
