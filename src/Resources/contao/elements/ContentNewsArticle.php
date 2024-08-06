@@ -7,22 +7,9 @@ use Bcs\Module\ModuleNewsElement;
 class ContentNewsArticle extends \ContentElement
 {
 
-
-    public function compile()
-    {
-        echo "HEY";
-        die();
-    }
-    
 	public function generate()
 	{
 		$time = time();
-		
-		
-		echo "BING BONG NOISE";
-		die();
-		
-		
 
 		// Get news item
 		$objArticle = \NewsModel::findPublishedByParentAndIdOrAlias($this->news, array($this->news_archive));
