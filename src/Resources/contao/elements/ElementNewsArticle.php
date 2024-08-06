@@ -34,4 +34,19 @@ class ContentNewsArticle extends ContentText
 		// Slider configuration
 		$this->Template->news_article = "SUCCESS";
 	}
+
+    public funtion generate()
+    {
+        // Get news item
+		$objArticle = \NewsModel::findPublishedByParentAndIdOrAlias($this->news, array($this->news_archive));
+
+		if ($objArticle === null)
+		{
+			return '';
+		}
+
+        echo "hit";
+
+    }
+    
 }
