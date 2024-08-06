@@ -1,48 +1,37 @@
 <?php
 
-namespace Bcs;
+/**
+ * @copyright  Bright Cliud Studio
+ * @author     Bright Cloud Studio
+ * @package    Contao CE News
+ * @license    LGPL-3.0+
+ * @see	       https://github.com/bright-cloud-studio/contao-ce-glide
+ */
 
-use Contao;
+namespace Bcs\NewsArticleBundle;
 
+use Contao\BackendTemplate;
+use Contao\ContentText;
+use Contao\System;
 
-
-class ElementNewsArticle extends \ContentElement
+class ContentNewsArticle extends ContentText
 {
-    protected $strTemplate = 'ce_news_article';
+	/* Template @var string */
+	protected $strTemplate = 'ce_news_article';
 
-    protected function compile()
-    {
-        if (TL_MODE == 'BE') {
-            $this->generateBackendOutput();
-        } else {
-            $this->generateFrontendOutput();
-        }
-    }
+	/* Generate the content element */
+	public function compile()
+	{
+		$request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
-    protected function generateBackendOutput()
-    {
-        echo "BING";
-        die();
-      
-        $this->strTemplate          = 'be_wildcard';
-        $this->Template             = new \BackendTemplate($this->strTemplate);
+		if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
+		{
+			$this->strTemplate = 'be_wildcard';
+			$this->Template = new BackendTemplate($this->strTemplate);
+			$this->Template->title = $this->headline;
+		}
 
-        if (\Config::get('recaptchaType') == 'recaptcha3') {
-            $actionString = $GLOBALS['TL_LANG']['tl_content']['recaptcha_action'][0];
-            $this->Template->wildcard = '<strong>' . $actionString . ':</strong> ' . $this->recaptcha_action;
-        } else {
-            $this->Template->wildcard = '<span style="color:red;">' . $GLOBALS['TL_LANG']['tl_content']['recaptcha_wrong_type'] . '</span>';
-        }
-    }
-
-    protected function generateFrontendOutput()
-    {
-        echo "BONG";
-        die();
-      
-        $this->Template->id = $this->id;
-        $this->Template->recaptchaType = \Config::get('recaptchaType');
-        $this->Template->publicKey  = \Config::get('recaptchaPublicKey'); 
-        $this->Template->action = $this->recaptcha_action; 
-    }
+		// Slider configuration
+		$this->Template->news_article = "SUCCESS";
+	}
 }
