@@ -22,11 +22,11 @@
         "contao/core-bundle": "^5.3"
     },
     "extra":{
-        "contao-manager-plugin": "Bcs\\NewsBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Bcs\\NewsArticleBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Bcs\\NewsBundle\\": "src"
+            "Bcs\\NewsArticleBundle\\": "src"
         },
         "classmap": [
             "src/Resources/contao"
