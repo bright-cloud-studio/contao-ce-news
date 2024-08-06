@@ -48,7 +48,9 @@ class ContentNewsArticle extends ContentText
 		}
 		
 		$newsarticle = new ModuleNewsArticle($objArticle, $this);
-		return $newsarticle->generate();
+		
+		$this->Template->article = $newsarticle->generate();
+		//return $newsarticle->generate();
 
 		
 	}
