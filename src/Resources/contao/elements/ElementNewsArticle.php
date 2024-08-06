@@ -12,6 +12,7 @@ namespace Bcs\NewsArticleBundle;
 
 use Contao\BackendTemplate;
 use Contao\ContentText;
+use Contao\NewsModel;
 use Contao\System;
 
 class ContentNewsArticle extends ContentText
