@@ -75,7 +75,7 @@ class tl_content_newsarticle extends Backend
 	public function __construct()
 	{
 		parent::__construct();
-		$this->import('BackendUser', 'User');
+		//$this->import('BackendUser', 'User');
 	}
 
 	public function editNewsLink(DataContainer $dc)
