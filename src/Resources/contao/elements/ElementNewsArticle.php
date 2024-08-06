@@ -12,7 +12,6 @@ namespace Bcs\NewsArticleBundle;
 
 use Contao\BackendTemplate;
 use Contao\ContentText;
-use Contao\NewsModel;
 use Contao\System;
 
 class ContentNewsArticle extends ContentText
@@ -36,18 +35,5 @@ class ContentNewsArticle extends ContentText
 		$this->Template->news_article = "SUCCESS";
 	}
 
-    public function generate()
-    {
-        // Get news item
-		$objArticle = \NewsModel::findPublishedByParentAndIdOrAlias($this->news, array($this->news_archive));
-
-		if ($objArticle === null)
-		{
-			return '';
-		}
-
-        echo "hit";
-
-    }
     
 }
