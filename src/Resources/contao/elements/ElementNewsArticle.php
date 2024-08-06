@@ -22,7 +22,7 @@ class ContentNewsArticle extends ContentText
 	protected $strTemplate = 'ce_news_article';
 
 	/* Generate the content element */
-	public function compile()
+	public function generate()
 	{
 	    
 	    $objArticle = NewsModel::findPublishedByParentAndIdOrAlias($this->news, array($this->news_archive));
@@ -38,21 +38,26 @@ class ContentNewsArticle extends ContentText
 			
 			$objTemplate = new BackendTemplate('be_wildcard');
 			// requires existing template from autoload.ini
-			$this->news_template = 'news_latest';
+			$this->news_template = 'ce_news_article';
 			$newsarticle = new ModuleNewsArticle($objArticle, $this);
 			$objTemplate->wildcard = $newsarticle->generate();
 			
-			return $objTemplate->parse();
+			//return $objTemplate->parse();
 			
 			
 		}
 		
 		$newsarticle = new ModuleNewsArticle($objArticle, $this);
 		
-		$this->Template->article = $newsarticle->generate();
-		//return $newsarticle->generate();
+		//$this->Template->article = $newsarticle->generate();
+		return $newsarticle->generate();
 
 		
+	}
+	
+	protected function compile()
+	{
+		return;
 	}
 
     
