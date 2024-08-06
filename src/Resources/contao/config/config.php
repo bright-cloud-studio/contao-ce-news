@@ -9,4 +9,5 @@
  */
 
 $GLOBALS['TL_CTE']['bcs']['news_article'] = 'Bcs\NewsArticleBundle\ContentNewsArticle';
+
 ?>
