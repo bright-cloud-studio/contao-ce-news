@@ -13,6 +13,7 @@ use Contao\BackendUser;
 use Contao\Config;
 use Contao\Controller;
 use Contao\DataContainer;
+use Contao\Image;
 use Contao\StringUtil;
 use Contao\System;
 
@@ -81,7 +82,7 @@ class tl_content_newsarticle extends Backend
 
 	public function editNewsLink(DataContainer $dc)
 	{
-		return ($dc->value < 1) ? '' : ' <a href="contao/main.php?do=news&amp;table=tl_news&amp;act=edit&amp;id=' . $dc->value . '" title="'.sprintf(StringUtil::specialchars($GLOBALS['TL_LANG']['tl_content']['editalias'][1]), $dc->value).'" style="padding-left:3px;">' . $this->generateImage('alias.gif', $GLOBALS['TL_LANG']['tl_content']['editalias'][0], 'style="vertical-align:top;"') . '</a>';
+		return ($dc->value < 1) ? '' : ' <a href="contao/main.php?do=news&amp;table=tl_news&amp;act=edit&amp;id=' . $dc->value . '" title="'.sprintf(StringUtil::specialchars($GLOBALS['TL_LANG']['tl_content']['editalias'][1]), $dc->value).'" style="padding-left:3px;">' . Image::getHtml('alias.gif', $GLOBALS['TL_LANG']['tl_content']['editalias'][0], 'style="vertical-align:top;"') . '</a>';
 	}
 
 	public function getNewsArchives(DataContainer $dc)
