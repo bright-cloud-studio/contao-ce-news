@@ -92,11 +92,6 @@ class tl_content_newsarticle extends Backend
 
 		$arrArchives = array();
 		$objArchives = $this->Database->execute("SELECT id, title FROM tl_news_archive ORDER BY title");
-		
-		echo "<pre>";
-		print_r($objArchives);
-		echo "</pre>";
-		die();
 
 		while ($objArchives->next())
 		{
