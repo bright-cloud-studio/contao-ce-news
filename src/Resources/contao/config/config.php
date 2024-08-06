@@ -8,7 +8,5 @@
  * @see	       https://github.com/bright-cloud-studio/contao-ce-news
  */
 
-$GLOBALS['TL_CTE']['miscellaneous'][0] = array(
-	'ce_news_article' => Bcs\ElementNewsArticle::class
-);
+$GLOBALS['TL_CTE']['bcs']['news_article'] = 'Bcs\NewsArticleBundle\ContentNewsArticle';
 ?>
