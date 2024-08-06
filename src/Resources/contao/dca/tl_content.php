@@ -85,20 +85,25 @@ class tl_content_newsarticle extends Backend
 
 	public function getNewsArchives(DataContainer $dc)
 	{
-		if (!$this->User->isAdmin && !is_array($this->User->news))
-		{
-			return array();
-		}
+		//if (!$this->User->isAdmin && !is_array($this->User->news))
+		//{
+		//	return array();
+		//}
 
 		$arrArchives = array();
 		$objArchives = $this->Database->execute("SELECT id, title FROM tl_news_archive ORDER BY title");
+		
+		echo "<pre>";
+		print_r($objArchives);
+		echo "</pre>";
+		die();
 
 		while ($objArchives->next())
 		{
-			if ($this->User->isAdmin || $this->User->hasAccess($objArchives->id, 'news'))
-			{
+			//if ($this->User->isAdmin || $this->User->hasAccess($objArchives->id, 'news'))
+			//{
 				$arrArchives[$objArchives->id] = $objArchives->title;
-			}
+			//}
 		}
 
 		return $arrArchives;
@@ -106,10 +111,10 @@ class tl_content_newsarticle extends Backend
 
 	public function getNews(DataContainer $dc)
 	{
-		if (!$this->User->isAdmin && !is_array($this->User->news) && $dc->activeRecord->news_archive < 1)
-		{
-			return array();
-		}
+		//if (!$this->User->isAdmin && !is_array($this->User->news) && $dc->activeRecord->news_archive < 1)
+		//{
+		//	return array();
+		//}
 
 		$arrNews = array();
 
@@ -117,8 +122,8 @@ class tl_content_newsarticle extends Backend
 
 		while ($objNews->next())
 		{
-			if ($this->User->isAdmin || $this->User->hasAccess($objNews->pid, 'news'))
-			{
+			//if ($this->User->isAdmin || $this->User->hasAccess($objNews->pid, 'news'))
+			//{
 				if($objNews->published == 0)
 				{
 					$arrNews['unpublished'][$objNews->id] = $objNews->headline;
@@ -126,7 +131,7 @@ class tl_content_newsarticle extends Backend
 				}
 
 				$arrNews[$objNews->id] = $objNews->headline;
-			}
+			//}
 		}
 
 		return $arrNews;
