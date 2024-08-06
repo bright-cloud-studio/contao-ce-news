@@ -27,7 +27,7 @@ class ModuleNewsElement extends \ModuleNews
 
 	protected $imgSize;
 
-	protected $strTemplate = 'mod_newselement';
+	protected $strTemplate = 'mod_news_article';
 
     /** @var ContentElement|null */
     protected $element;
