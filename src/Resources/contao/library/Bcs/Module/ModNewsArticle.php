@@ -16,6 +16,7 @@ use Contao\ModuleNews;
 use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\NewsModel;
+use Contao\System;
 
 class ModuleNewsArticle extends ModuleNews
 {
