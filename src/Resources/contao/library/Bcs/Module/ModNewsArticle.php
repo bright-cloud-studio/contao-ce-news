@@ -56,6 +56,8 @@ class ModuleNewsArticle extends ModuleNews
 		$this->type = 'news_article';
 		$this->headline = $element->headline;
 		$this->hl = $element->hl;
+		$this->ce_id = $element->cssID[0];
+		$this->ce_class = $element->cssID[1];
 	}
 
 	public function generate()
@@ -102,5 +104,7 @@ class ModuleNewsArticle extends ModuleNews
 	protected function compile()
 	{
 		$this->Template->article = parent::parseArticle($this->objArticle);
+		$this->Template->ce_id = $this->ce_id;
+		$this->Template->ce_class = $this->ce_class;
 	}
 }
