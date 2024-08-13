@@ -44,6 +44,7 @@ class ContentNewsArticle extends ContentText
             // Generate the News Article module then apply the HTML to our backend wildcard
 			$objTemplate->wildcard = $newsarticle->generate();
 		}
+		
 		// If this isnt a backend request, create a News Article module, apply our article
 		$newsarticle = new ModuleNewsArticle($objArticle, $this);
         // return the generated HTML
