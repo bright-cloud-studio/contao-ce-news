@@ -17,10 +17,12 @@ use Contao\Image;
 use Contao\StringUtil;
 use Contao\System;
 
-// Get our default 'tl_content' DCA
+// Get the existing DCA
 $dc = &$GLOBALS['TL_DCA']['tl_content'];
+// Add our 'News Article' palette
 $dc['palettes']['news_article'] = '{type_legend},type,headline;{news_legend},news_archive,news,news_template,size,news_metaFields;{protected_legend:hide},protected;{expert_legend:hide},guests,invisible,cssID,space';
 
+// Add our 'News Article' fields
 $GLOBALS['TL_DCA']['tl_content']['fields']['news_archive'] = array(
 	'label'                 => &$GLOBALS['TL_LANG']['tl_content']['news_archive'],
 	'exclude'               => true,
@@ -74,7 +76,6 @@ class tl_content_newsarticle extends Backend
 	public function __construct()
 	{
 		parent::__construct();
-		//$this->import('BackendUser', 'User');
 	}
 
 	public function editNewsLink(DataContainer $dc)
@@ -84,20 +85,12 @@ class tl_content_newsarticle extends Backend
 
 	public function getNewsArchives(DataContainer $dc)
 	{
-		//if (!$this->User->isAdmin && !is_array($this->User->news))
-		//{
-		//	return array();
-		//}
-
 		$arrArchives = array();
 		$objArchives = $this->Database->execute("SELECT id, title FROM tl_news_archive ORDER BY title");
 
 		while ($objArchives->next())
 		{
-			//if ($this->User->isAdmin || $this->User->hasAccess($objArchives->id, 'news'))
-			//{
-				$arrArchives[$objArchives->id] = $objArchives->title;
-			//}
+			$arrArchives[$objArchives->id] = $objArchives->title;
 		}
 
 		return $arrArchives;
@@ -105,27 +98,18 @@ class tl_content_newsarticle extends Backend
 
 	public function getNews(DataContainer $dc)
 	{
-		//if (!$this->User->isAdmin && !is_array($this->User->news) && $dc->activeRecord->news_archive < 1)
-		//{
-		//	return array();
-		//}
-
 		$arrNews = array();
-
 		$objNews = $this->Database->prepare('SELECT * FROM tl_news WHERE pid = ? ORDER BY date DESC')->execute($dc->activeRecord->news_archive);
 
 		while ($objNews->next())
 		{
-			//if ($this->User->isAdmin || $this->User->hasAccess($objNews->pid, 'news'))
-			//{
-				if($objNews->published == 0)
-				{
-					$arrNews['unpublished'][$objNews->id] = $objNews->headline;
-					continue;
-				}
+            if($objNews->published == 0)
+            {
+                $arrNews['unpublished'][$objNews->id] = $objNews->headline;
+                continue;
+            }
 
-				$arrNews[$objNews->id] = $objNews->headline;
-			//}
+            $arrNews[$objNews->id] = $objNews->headline;
 		}
 
 		return $arrNews;
