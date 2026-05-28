@@ -19,7 +19,7 @@
     },
     "require":{
         "php": "^7.4 || ^8.0",
-        "contao/core-bundle": "^5.3"
+        "contao/core-bundle": "^5.3 || ^5.7"
     },
     "extra":{
         "contao-manager-plugin": "Bcs\\NewsArticleBundle\\ContaoManager\\Plugin"
